@@ -1,24 +1,39 @@
-# MogrifyDraw
+# Mogrify Draw
 
-**TODO: Add description**
+A wrapper of the imagemagick draw functionality on top of mogrify
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+Add this to your `mix.exs` file, then run `mix do deps.get, deps.compile`:
 
-  1. Add `mogrify_draw` to your list of dependencies in `mix.exs`:
+```elixir
+def deps do
+  [{:mogrify_draw, "~> 0.1.0"}]
+end
+```
 
-    ```elixir
-    def deps do
-      [{:mogrify_draw, "~> 0.1.0"}]
-    end
-    ```
+```elixir
+def application do
+  [applications: [:mogrify_draw]]
+end
+```
 
-  2. Ensure `mogrify_draw` is started before your application:
+## Examples
 
-    ```elixir
-    def application do
-      [applications: [:mogrify_draw]]
-    end
-    ```
 
+```elixir
+import Mogrify
+
+%Mogrify.Image{path: "test.png", ext: "png"}
+|> custom("size", "280x280")
+|> canvas("white")
+|> custom("fill", "blue")
+|> Mogrify.Draw.circle(140,140,100,100)
+|> custom("fill", "yellow")
+|> Mogrify.Draw.circle(140,140,140,100)
+|> create(path: ".")
+```
+
+## License
+
+Mogrify Draw source code is licensed under the [MIT License](LICENSE.md).
