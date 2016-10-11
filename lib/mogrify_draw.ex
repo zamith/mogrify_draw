@@ -1,0 +1,2 @@
+defmodule MogrifyDraw do
+end
