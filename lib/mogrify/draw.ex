@@ -1,4 +1,7 @@
 defmodule Mogrify.Draw do
+  @moduledoc """
+  Functions for interacting with the draw functionality from imagemagick
+  """
   import Mogrify
 
   def circle(image, originX, originY, perimX, perimY) do
