@@ -3,12 +3,12 @@ defmodule MogrifyDraw.Mixfile do
 
   def project do
     [app: :mogrify_draw,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     description: description,
-     package: package,
+     description: description(),
+     package: package(),
      deps: deps()]
   end
 
@@ -18,7 +18,7 @@ defmodule MogrifyDraw.Mixfile do
 
   defp deps do
     [
-      {:mogrify, "~> 0.4.0"},
+      {:mogrify, "~> 0.5.4"},
       {:ex_doc, ">= 0.0.0", only: :dev},
     ]
   end
