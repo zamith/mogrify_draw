@@ -3,8 +3,9 @@ defmodule MogrifyDraw.Mixfile do
 
   def project do
     [app: :mogrify_draw,
-     version: "0.1.1",
-     elixir: "~> 1.3",
+     version: "0.1.2",
+     elixir: "~> 1.9",
+     elixirc_paths: elixirc_paths(Mix.env()),     
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      description: description(),
@@ -16,9 +17,13 @@ defmodule MogrifyDraw.Mixfile do
     [applications: [:logger]]
   end
 
+  # Specifies which paths to compile per environment.
+  defp elixirc_paths(:test), do: ["lib", "test"]
+  defp elixirc_paths(_), do: ["lib"]
+
   defp deps do
     [
-      {:mogrify, "~> 0.5.4"},
+      {:mogrify, "~> 0.9.2"},
       {:ex_doc, ">= 0.0.0", only: :dev},
     ]
   end
